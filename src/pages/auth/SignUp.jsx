@@ -1,8 +1,9 @@
 import {Card, Button, Form} from 'react-bootstrap';
 import './SignUp.scss'
+import { useForm } from 'react-hook-form';
 
 const SingUp = () => {
-
+    const {register, handleSubmit, formState: {errors}} = useForm();
 
     return (
         <Card style={{ width: '22rem' }} className='justify-content-center mx-auto mt-5'>
