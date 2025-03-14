@@ -1,6 +1,6 @@
 
 import './App.css'
-import RoutesIndex from '../routes/RoutesIndex'
+import RoutesIndex from '@/routes/RoutesIndex'
 import { BrowserRouter } from 'react-router-dom'
 
 function App() {
