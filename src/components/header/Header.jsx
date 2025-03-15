@@ -1,8 +1,9 @@
 import { Navbar, Nav, Container } from 'react-bootstrap';
+import './Header.scss';
 
 const Header = () => {
     return (
-        <Navbar bg='primary' style={{borderRadius: '10px', padding: '10px'}}>
+        <Navbar style={{borderRadius: '10px', padding: '10px', backgroundColor: ' rgb(47, 126, 245)'}} data-bs-theme="dark" className='navbar'>
             <Container>
                 <Navbar.Brand href='/'>TASKLY</Navbar.Brand>
                 <Nav className='Navbar'>
