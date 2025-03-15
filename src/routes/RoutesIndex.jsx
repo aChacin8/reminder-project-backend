@@ -1,7 +1,7 @@
 import {Routes, Route} from 'react-router-dom';
-import SignUp from '@/pages/auth/signup/SignUp';
+import SignUp from '@/pages/auth/SignUp';
 import Home from '@/pages/home/Home';
-import Login from '@/pages/auth/login/Login';
+import Login from '@/pages/auth/Login';
 
 const RoutesIndex = () => {
     return (
