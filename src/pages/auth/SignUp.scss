@@ -1,0 +1,39 @@
+#signup, #login {
+    border-color: rgb(67, 135, 224);
+    margin-top: 10rem;
+    &__tittle{
+        font-family: "Roboto Slab", serif;
+        font-size: 2rem;
+    }
+
+    &__form-div  {
+        display: flex;
+    }
+
+    &__name-first {
+        margin-left: -1rem;
+        padding-right: 2rem;
+    }
+
+    &__gender {
+        width: 40%;
+        justify-self: center;
+        text-align: center;
+    }
+
+    &__password, &__email {
+        width: 80%;
+        justify-self: center;
+    }
+
+    &__btn {
+        background-color: rgb(47, 126, 245);
+        color: rgb(255, 255, 255);
+    
+        &:hover {
+            background-color: rgb(31, 91, 180);;
+        }
+    }
+
+    
+}
