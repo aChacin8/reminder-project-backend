@@ -1,6 +1,7 @@
 import { Card, Button, Form } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
 import { NavLink } from 'react-router-dom';
+import './Auth.scss'
 
 const Login = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();

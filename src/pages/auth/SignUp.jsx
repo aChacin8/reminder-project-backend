@@ -1,5 +1,5 @@
 import { Card, Button, Form } from 'react-bootstrap';
-import './SignUp.scss'
+import './Auth.scss'
 import { useForm } from 'react-hook-form';
 
 const SingUp = () => {
@@ -19,11 +19,10 @@ const SingUp = () => {
                                 id='signup__name-first'
                                 className='mt-3'
                                 name='first_name'
-                                placeholder='Nombre'
+                                placeholder='Ingresa tu nombre'
                                 required
                                 {...register('first_name')}
                             />
-                            <p>{errors.firstName?.message}</p>
                         </Form.Group>
 
                         <Form.Group className='mb-3' id='signup__form-name'>
@@ -33,16 +32,15 @@ const SingUp = () => {
                                 id='signup__name-last'
                                 className='m-3'
                                 name='last_name'
-                                placeholder='Last name'
+                                placeholder='Ingresa tu apellido'
                                 required
                                 {...register('last_name')}
                             />
-                            <p>{errors.lastName?.message}</p>
                         </Form.Group>
                     </Form.Group>
 
                     <Form.Group className='mb-3 d-flex'>
-                        <Form.Label className='mx-4'>Genero:</Form.Label>    
+                        <Form.Label className='mx-4'>Genero:</Form.Label>
                         {['radio'].map((type) => (
                             <div key={`inline-${type}`} className="mb-3" required>
                                 <Form.Check
@@ -71,7 +69,32 @@ const SingUp = () => {
                                 />
                             </div>
                         ))}
-                        <p>{errors.gender?.message}</p>
+                    </Form.Group>
+
+                    <Form.Group className='mt-3' id='signup__form-div'>
+                        <Form.Group className='mb-3' id='signup__form-location'>
+                            <Form.Label className='m-3'>Direccion:</Form.Label>
+                            <Form.Control
+                                type='text'
+                                id='signup__location'
+                                className='mt-3'
+                                name='location'
+                                placeholder='Ingresa tu direccion'
+                                required
+                                {...register('location')}
+                            />
+                        </Form.Group>
+                        <Form.Group className='mb-3' id='signup__form-phone'>
+                            <Form.Label className='m-3'>Telefono:</Form.Label>
+                            <Form.Control
+                                type='text'
+                                id='signup__phone'
+                                className='m-3'
+                                name='phone_number'
+                                placeholder='Ingresa tu numero telefonico'
+                                {...register('phone_number')}
+                            />
+                        </Form.Group>
                     </Form.Group>
 
                     <Form.Group className='mb-3'>
@@ -79,26 +102,26 @@ const SingUp = () => {
                         <Form.Control
                             type='email'
                             name='email'
+                            className='m-3'
                             id='signup__email'
-                            placeholder='name@example.com'
+                            placeholder='nombre@ejemplo.com'
                             required
                             {...register('email')}
                         />
-                        <p>{errors.email?.message}</p>
                     </Form.Group>
 
                     <Form.Group className='mb-3'>
-                        <Form.Label>Password</Form.Label>
+                        <Form.Label>Contraseña:</Form.Label>
                         <Form.Control
                             type='password'
                             name='password'
                             id='signup__password'
-                            placeholder='Password'
+                            placeholder='Ingresa una Contraseña'
                             required
                             {...register('password')}
                         />
-                        <p>{errors.password?.message}</p>
                     </Form.Group>
+
                     <Button variant='success' type='submit' className='btn btn-outline-primary mt-3' id='signup__btn'>Registrarse </Button>
                 </Form>
             </Card.Body>

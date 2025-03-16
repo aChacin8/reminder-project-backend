@@ -1,5 +1,12 @@
+$border: rgb(67, 135, 224);
+
+@mixin border () {
+    border-color:$border;
+}
+
 #signup, #login {
-    border-color: rgb(67, 135, 224);
+    @include border();
+    
     margin-top: 10rem;
     &__tittle{
         font-family: "Roboto Slab", serif;
@@ -10,9 +17,9 @@
         display: flex;
     }
 
-    &__name-first {
+    &__name-first, &__location {
         margin-left: -1rem;
-        padding-right: 2rem;
+        width: 120%;
     }
 
     &__gender {
@@ -20,14 +27,18 @@
         justify-self: center;
         text-align: center;
     }
-
+    
     &__password, &__email {
         width: 80%;
         justify-self: center;
     }
 
+    &__name-first, &__name-last, &__location, &__phone, &__password, &__email{
+        border-color: $border;
+    }
+    
     &__btn {
-        background-color: rgb(47, 126, 245);
+        background-color: $border;
         color: rgb(255, 255, 255);
     
         &:hover {
