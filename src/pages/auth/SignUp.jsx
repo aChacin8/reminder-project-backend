@@ -1,12 +1,15 @@
+import Header from '@/components/Header'
 import { Card, Button, Form } from 'react-bootstrap';
-import './Auth.scss'
 import { useForm } from 'react-hook-form';
+import '@/styles/Auth.scss'
+
 
 const SingUp = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
 
     return (
-
+        <>
+        <Header/>
         <Card style={{ width: '25rem' }} className='justify-content-center mx-auto mt-5' id='signup'>
             <Card.Body className='text-center' id='signup__body'>
                 <Card.Title id='signup__tittle'>Crear Usuario</Card.Title>
@@ -126,6 +129,7 @@ const SingUp = () => {
                 </Form>
             </Card.Body>
         </Card>
+        </>
     );
 }
 

@@ -1,7 +1,7 @@
 // import reminderImage from './img/reminder.png';
-import InfoComponent from '@/components/info/InfoComponent';
-import './Home.scss';
-import Header from '@/components/header/Header';
+import InfoComponent from '@/components/InfoComponent';
+import '@/styles/Home.scss';
+import Header from '@/components/Header';
 
 function Home () {
   return (

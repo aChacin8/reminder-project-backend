@@ -1,12 +1,15 @@
+import Header from '@/components/Header'
 import { Card, Button, Form } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
 import { NavLink } from 'react-router-dom';
-import './Auth.scss'
+import '@/styles/Auth.scss'
 
 const Login = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
 
     return (
+        <>
+        <Header/>
         <Card style={{ width: '22rem', paddingBlock: '6rem' }} className='justify-content-center mx-auto' id='login'>
             <Card.Body className='text-center' >
                 <Card.Title className='mb-5'>Inicio de Sesion</Card.Title>
@@ -46,6 +49,8 @@ const Login = () => {
                 </Form>
             </Card.Body>
         </Card>
+        </>
+        
     );
 }
 
