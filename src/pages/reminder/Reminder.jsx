@@ -1,9 +1,14 @@
-
+import CalendarComponent from "@/components/CalendarComponent";
+import Header from '@/components/Header';
 
 const Reminder = () => {
+
+    console.log(Reminder);
+
     return (
         <>
-            <h1>reminder</h1>
+            <Header/>
+            <CalendarComponent/>
         </>
     );
 }
