@@ -1,4 +1,3 @@
-// import reminderImage from './img/reminder.png';
 import InfoComponent from '@/components/InfoComponent';
 import '@/styles/Home.scss';
 import Header from '@/components/Header';
