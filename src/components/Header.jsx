@@ -9,7 +9,6 @@ const Header = () => {
                 <Nav className='Navbar'>
                     <Nav.Link href='/Login'>Inicia Sesion</Nav.Link>
                     <Nav.Link href='/SignUp'>Registrate</Nav.Link>
-                    <Nav.Link href='/Reminder'>Reminder</Nav.Link>
                 </Nav>
             </Container>
         </Navbar>
