@@ -71,22 +71,22 @@ const SingUp = () => {
                     </Form.Group>
 
                     <Form.Group className="mb-3 d-flex">
-    <Form.Label className="mx-4">Género:</Form.Label>
-    {['H', 'M', 'O'].map((value) => (
-        <div key={value} className="mb-3">
-            <Form.Check
-                inline
-                label={value === 'H' ? 'Hombre' : value === 'M' ? 'Mujer' : 'Otro'}
-                name="gender" // El nombre del grupo debe ser el mismo para los 3 botones de opción
-                type="radio"
-                id={`gender-${value}`}
-                value={value}
-                {...register('gender', { required: true })}
-            />
-        </div>
-    ))}
-    <p>{errors.gender?.message}</p>
-</Form.Group>
+                        <Form.Label className="mx-4">Género:</Form.Label>
+                        {['H', 'M', 'O'].map((value) => (
+                            <div key={value} className="mb-3">
+                                <Form.Check
+                                    inline
+                                    label={value === 'H' ? 'Hombre' : value === 'M' ? 'Mujer' : 'Otro'}
+                                    name="gender" // El nombre del grupo debe ser el mismo para los 3 botones de opción
+                                    type="radio"
+                                    id={`gender-${value}`}
+                                    value={value}
+                                    {...register('gender', { required: true })}
+                                />
+                            </div>
+                        ))}
+                        <p>{errors.gender?.message}</p>
+                    </Form.Group>
 
 
 
