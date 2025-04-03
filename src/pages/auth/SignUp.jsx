@@ -22,7 +22,7 @@ const SingUp = () => {
             const result = await response.json(); // Convierte la respuesta a formato JSON
             
             if (response.status === 201) { 
-                navigate('/login'); // Redirige al usuario a la página de inicio de sesión
+                navigate('/Login'); // Redirige al usuario a la página de inicio de sesión
                 alert('Usuario registrado con éxito'); // Muestra un mensaje de éxito
             }
             console.log(result); // Muestra el resultado en la consola
