@@ -8,7 +8,7 @@ dotenv.config();
 
 const app = express(); // Crea la aplicación Express
 app.use(cors()); // Habilita la comunicación entre el frontend y backend
-app.use(express.json()); // Recibe datos en formato JSON
+app.use(express.json()); // Manejar servidor en formato JSON
 
 const db = mysql2.createPool({ // Configuración de la base de datos
     host: 'localhost', 
