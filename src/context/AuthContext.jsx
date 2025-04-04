@@ -1,10 +1,10 @@
 import { createContext, useState, useEffect } from "react";
 import { jwtDecode } from "jwt-decode";
-import { set } from "react-hook-form";
 
 const AuthContext = createContext();
 
-const AuthProvider = ({Children})=> {
+const AuthProvider = ({children})=> {
+    
     const [isAuth, setIsAuth] = useState(false);  //Para saber si el usuario esta autenticado
     const [userpayload, setUserPayload] = useState(null); //Datos decodificados del JWT
 
@@ -17,8 +17,9 @@ const AuthProvider = ({Children})=> {
 
     const logout = () => {
         sessionStorage.removeItem ('token'); //Elimina el token del sessionStorage
-        setuserPayload (null); //Borra el payload
+        setUserPayload (null); //Borra el payload
         setIsAuth(false); //Actualiza el estado de autenticacion a falso
+        navigate('/'); //Redirige al usuario a la pagina de inicio
     }
 
     useEffect(()=> {
@@ -39,7 +40,7 @@ const AuthProvider = ({Children})=> {
 
     return (
         <AuthContext.Provider value={data}>
-            {Children}
+            {children}
         </AuthContext.Provider>
     ) 
 }
