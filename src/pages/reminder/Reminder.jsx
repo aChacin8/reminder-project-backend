@@ -4,8 +4,6 @@ import CardCalendarComponent from "@/components/CardCalendarComponent";
 
 const Reminder = () => {
 
-    console.log(Reminder);
-
     return (
         <>
             <Header/>
