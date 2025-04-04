@@ -8,13 +8,13 @@ dotenv.config();
 
 const app = express(); // Crea la aplicación Express
 app.use(cors()); // Habilita la comunicación entre el frontend y backend
-app.use(express.json()); // Manejar servidor en formato JSON
+app.use(express.json()); // Recibe datos en formato JSON
 
 const db = mysql2.createPool({ // Configuración de la base de datos
     host: 'localhost', 
     user: 'root', 
     password: 'root', 
-    database: 'reminder_db', 
+    database: 'taskly', 
     waitForConnections: true, 
     connectionLimit: 10, 
     queueLimit: 0 
@@ -23,14 +23,14 @@ const db = mysql2.createPool({ // Configuración de la base de datos
 const SECRET_KEY = process.env.SECRET_KEY || "supersecretkey"; // Clave secreta para firmar los tokens JWT
 
 app.post('/register', async (req, res) => {
-    const { first_name, last_name, gender, location, phone_number, email, password } = req.body;
+    const { first_name, last_name, gender, address,  phone_num, email, password } = req.body;
 
     try {
         const hash = await bcrypt.hash(password, 10); // Encriptar la contraseña
 
         const [result] = await db.promise().query(
-            'INSERT INTO users (first_name, last_name, gender, location, phone_number, email, password) VALUES (?, ?, ?, ?, ?, ?, ?)', // Consulta SQL para insertar un nuevo usuario
-            [first_name, last_name, gender, location, phone_number, email, password]
+            'INSERT INTO users (first_name, last_name, gender, address,  phone_num, email, password) VALUES (?, ?, ?, ?, ?, ?, ?)', // Consulta SQL para insertar un nuevo usuario
+            [first_name, last_name, gender, address,  phone_num, email, hash]// Valores a insertar
         );
         res.json({ message: "Usuario registrado con éxito", result });
     } catch (error) {
