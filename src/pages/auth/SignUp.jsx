@@ -24,6 +24,8 @@ const SingUp = () => {
             if (response.status === 201) { 
                 navigate('/Login'); // Redirige al usuario a la página de inicio de sesión
                 alert('Usuario registrado con éxito'); // Muestra un mensaje de éxito
+                console.log(hola);
+                
             }
             console.log(result); // Muestra el resultado en la consola
             
@@ -137,6 +139,7 @@ const SingUp = () => {
                         <Form.Control
                             type='password'
                             name='password'
+                            pattern='^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$' // Al menos 8 caracteres, al menos una letra y un número
                             id='signup__password'
                             placeholder='Ingresa una Contraseña'
                             required
