@@ -4,7 +4,6 @@ import { jwtDecode } from "jwt-decode";
 const AuthContext = createContext();
 
 const AuthProvider = ({children})=> {
-    
     const [isAuth, setIsAuth] = useState(false);  //Para saber si el usuario esta autenticado
     const [userpayload, setUserPayload] = useState(null); //Datos decodificados del JWT
 
@@ -19,7 +18,6 @@ const AuthProvider = ({children})=> {
         sessionStorage.removeItem ('token'); //Elimina el token del sessionStorage
         setUserPayload (null); //Borra el payload
         setIsAuth(false); //Actualiza el estado de autenticacion a falso
-        navigate('/'); //Redirige al usuario a la pagina de inicio
     }
 
     useEffect(()=> {
