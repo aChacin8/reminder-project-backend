@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import express from 'express'; // Importamos librería para crear servidores
 import mysql2 from 'mysql2'; // Importamos la librería para usar MySQL
 import cors from 'cors'; // Permite el intercambio de recursos entre el frontend y backend
@@ -54,7 +55,6 @@ app.post ('/login', async (req,res) => {
 
         const token = jwt.sign ({id_user: user.id_user}, SECRET_KEY, {expiresIn: '1h'}); // Genera un token JWT
         res.json({ message: 'Inicio de sesión exitoso', token }); // Devuelve el token al cliente
-
     } catch (error) {
         res.status(500).json({ error: error.message });
     };
@@ -74,6 +74,29 @@ const verifyToken = (req, res, next) => {
         next(); // Funcion de express que permite continuar con la siguiente función de middleware 
     });
 };
+
+app.post ('/reminder', verifyToken, async (req, res) => {
+    const {name, description, start_date, end_date, color} = req.body;
+    const id_users = req.user.id;
+    try {
+        const [result] = await db.promise().query(
+            'INSERT INTO events (id_users, name, description, start_date, end_date, color) VALUES (?, ?, ?, ?, ?)', // Consulta SQL para insertar eventos
+            [id_users,name, description, start_date, end_date, color]// Valores a insertar
+        );
+        res.json ({message: 'Evento registrado con éxito', result});
+    } catch (error) {
+        res.status(500).json({error:error.message});
+    }
+})
+
+app.get ('/events', verifyToken, async (req, res)=> {
+    try {
+        const [events] = await db.promise().query('SELECT * FROM events');
+        res.json(events);
+    } catch (error) {
+        res.status(500).json({error:error.message});
+    }
+})
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
