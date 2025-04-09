@@ -1,6 +1,6 @@
-import CalendarComponent from "@/components/CalendarComponent";
+import CalendarComponent from "@/components/calendar/CalendarComponent";
 import Header from '@/components/Header';
-import CardCalendarComponent from "@/components/CardCalendarComponent";
+import CardCalendarComponent from "@/components/calendar/CardCalendarComponent";
 
 const Reminder = () => {
 
