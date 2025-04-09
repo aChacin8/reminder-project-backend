@@ -55,8 +55,7 @@ const Login = () => {
                             id='login__email'
                             className='mb-4'
                             placeholder='name@example.com'
-                            required
-                            {...register('email')}
+                            {...register('email' , {required: true} )}
                         />
                         <p>{errors.email?.message}</p>
                     </Form.Group>
@@ -71,7 +70,7 @@ const Login = () => {
                             className='mb-5'
                             placeholder='Password'
                             required
-                            {...register('password')}
+                            {...register('password' , {required: true})}
                         />
                         <p>{errors.password?.message}</p>
                     </Form.Group>

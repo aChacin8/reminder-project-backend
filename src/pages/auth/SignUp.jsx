@@ -23,9 +23,7 @@ const SingUp = () => {
             
             if (response.status === 201) { 
                 navigate('/Login'); // Redirige al usuario a la página de inicio de sesión
-                alert('Usuario registrado con éxito'); // Muestra un mensaje de éxito
-                console.log(hola);
-                
+                alert('Usuario registrado con éxito'); // Muestra un mensaje de éxito                
             }
             console.log(result); // Muestra el resultado en la consola
             
@@ -51,10 +49,9 @@ const SingUp = () => {
                                 name='first_name'
                                 placeholder='Ingresa tu nombre'
                                 required
-                                {...register('first_name')}
+                                {...register('first_name' , {required: true})}
                             />
                             <p>{errors.first_name?.message}</p>
-
                         </Form.Group>
 
                         <Form.Group className='mb-3' id='signup__form-name'>
@@ -66,7 +63,7 @@ const SingUp = () => {
                                 name='last_name'
                                 placeholder='Ingresa tu apellido'
                                 required
-                                {...register('last_name')}
+                                {...register('last_name' , {required: true})}
                             />
                             <p>{errors.last_name?.message}</p>
                         </Form.Group>
@@ -89,8 +86,6 @@ const SingUp = () => {
                         ))}
                         <p>{errors.gender?.message}</p>
                     </Form.Group>
-
-
 
                     <Form.Group className='mt-3' id='signup__form-div'>
                         <Form.Group className='mb-3' id='signup__form-location'>
@@ -129,7 +124,7 @@ const SingUp = () => {
                             id='signup__email'
                             placeholder='nombre@ejemplo.com'
                             required
-                            {...register('email')}
+                            {...register('email' , {required: true}) }
                         />
                         <p>{errors.email?.message}</p>
                     </Form.Group>
@@ -143,7 +138,7 @@ const SingUp = () => {
                             id='signup__password'
                             placeholder='Ingresa una Contraseña'
                             required
-                            {...register('password')}
+                            {...register('password' , {required: true})}
                         />
                         <p>{errors.password?.message}</p>
                     </Form.Group>
