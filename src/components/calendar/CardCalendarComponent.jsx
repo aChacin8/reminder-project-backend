@@ -3,7 +3,6 @@ import { useForm } from 'react-hook-form';
 import '@/styles/Calendar.scss'
 import { useEventContext } from '@/hooks/useEventContext';
 
-
 const CardCalendarComponent = () => {
     const {register, handleSubmit, formState: { errors }} = useForm (); 
     const {events, setEvents} = useEventContext();
@@ -12,7 +11,6 @@ const CardCalendarComponent = () => {
             alert('La fecha de finalización no puede ser anterior a la de inicio.');
             return;
         }
-
         try {
             const token = sessionStorage.getItem ('token');
 
@@ -28,7 +26,7 @@ const CardCalendarComponent = () => {
                     start_date: data ['startDate-e'],
                     end_date: data ['endDate-e'],
                     color: data ['color-e']
-                })
+                })  //Se envian los datos al servidor
             });
             
             const result = await response.json();
@@ -56,6 +54,7 @@ const CardCalendarComponent = () => {
                         placeholder='Ingresa un titulo del evento'
                         {...register('title-e', {required: true})}
                     />
+                <p>{errors.name?.message}</p>
                 </Form.Group>
                 <Form.Group className='cardCalendar__form-group'>
                     <Form.Label>Descripcion:</Form.Label>
@@ -65,8 +64,8 @@ const CardCalendarComponent = () => {
                         className='cardCalendar__group-descr'
                         placeholder='Ingresa un descripcion del evento'
                         {...register('descr-e')}
-
                     />
+                <p>{errors.description?.message}</p>
                 </Form.Group>
                 <Form.Group className='m-3'>
                     <Form.Group className='cardCalendar__form-group'>
@@ -78,6 +77,7 @@ const CardCalendarComponent = () => {
                             placeholder='Selecciona la fecha inicial'
                             {...register('startDate-e')}
                         />
+                        <p>{errors.start_date?.message}</p>
                     </Form.Group>
                     <Form.Group className='cardCalendar__form-group'>
                         <Form.Label>Fecha Finalización:</Form.Label>
@@ -88,6 +88,7 @@ const CardCalendarComponent = () => {
                             placeholder='Selecciona la fecha final'
                             {...register('endDate-e')}
                         />
+                        <p>{errors.end_date?.message}</p>
                     </Form.Group>
                 </Form.Group>
 
@@ -100,6 +101,7 @@ const CardCalendarComponent = () => {
                         placeholder='Ingresa un color para el evento'
                         {...register('color-e')}
                     />
+                <p>{errors.color?.message}</p>
                 </Form.Group>
                 <Button
                     variant='success'
