@@ -9,7 +9,7 @@ exports.up = function(knex) {
             table.increments('id_events').primary()
             table.integer('id_users').unsigned().notNullable()
             table.foreign('id_users')
-                .references('users.id_users')
+                .references('users.id_users').inTable('users')
                 .onDelete('CASCADE')
             table.string('event_name').notNullable()
             table.string('event_description')
